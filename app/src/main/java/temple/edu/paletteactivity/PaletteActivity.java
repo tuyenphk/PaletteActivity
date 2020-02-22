@@ -17,7 +17,7 @@ public class PaletteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String[] colors = {"red","blue","green","white","grey","cyan","magenta","yellow","lime","maroon","teal", "purple"};
+        String[] colors = {"Red","Blue","Green","White","Grey","Cyan","Magenta","Yellow","Lime","Maroon","Teal", "Purple"};
         final Spinner colorSpinner = findViewById(R.id.colorSpinner);
         final View activityLayout = findViewById(R.id.activityLayout);
 

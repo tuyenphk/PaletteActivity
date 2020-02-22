@@ -5,6 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toolbar;
 
 public class CanvasActivity extends AppCompatActivity {
 
@@ -15,6 +19,9 @@ public class CanvasActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String color = intent.getStringExtra(PaletteActivity.EXTRA_COLOR);
-        findViewById(R.id.canvasLayout).setBackgroundColor( Color.parseColor(color) );
+        findViewById(R.id.canvasLayout).setBackgroundColor( Color.parseColor(color));
+
+        TextView colorTextView = findViewById(R.id.colorText);
+        colorTextView.setText(color);
     }
 }
