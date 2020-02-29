@@ -1,18 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Palette Activity</string>
-    <string name="canvas_name">Canvas Activity</string>
+    <string name="app_name">Paleta Actividad</string>
+    <string name="canvas_name">Lona Actividad</string>
     <string-array name="color_names_array">
-        <item>Red</item>
-        <item>Blue</item>
-        <item>Green</item>
-        <item>White</item>
-        <item>Grey</item>
-        <item>Cyan</item>
+        <item>Rojo</item>
+        <item>Azul</item>
+        <item>Verde</item>
+        <item>Blanco</item>
+        <item>Gris</item>
+        <item>Cian</item>
         <item>Magenta</item>
-        <item>Yellow</item>
-        <item>Lime</item>
-        <item>Maroon</item>
-        <item>Teal</item>
+        <item>Amarillo</item>
+        <item>Lima</item>
+        <item>Granate</item>
+        <item>Verde Azulado</item>
     </string-array>
     <string-array name="color_codes_array">
         <item>Red</item>
