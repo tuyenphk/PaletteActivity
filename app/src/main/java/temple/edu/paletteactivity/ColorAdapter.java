@@ -8,10 +8,11 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 public class ColorAdapter extends BaseAdapter {
-    private Context context;
-    private String[] colors;
 
-    public ColorAdapter(Context context, String[] colors){
+    private Context context;
+    private String[][] colors;
+
+    public ColorAdapter(Context context, String[][] colors){
         this.context = context;
         this.colors = colors;
     }
@@ -22,12 +23,12 @@ public class ColorAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int i) {
-        return colors[i];
+    public Object getItem(int position) {
+        return colors[position];
     }
 
     @Override
-    public long getItemId(int i) {
+    public long getItemId(int position) {
         return 0;
     }
 
@@ -41,7 +42,7 @@ public class ColorAdapter extends BaseAdapter {
             view = new TextView(context);
         }
 
-        view.setText( colors[position] );
+        view.setText( colors[position][0] );
         view.setTextSize(24);
         view.setPadding(12,12,12,12);
 
@@ -53,7 +54,7 @@ public class ColorAdapter extends BaseAdapter {
         TextView view;
 
         view = (TextView) this.getView(position, convertView, parent);
-        view.setBackgroundColor(Color.parseColor( colors[position] ));
+        view.setBackgroundColor(Color.parseColor( colors[position][1] ));
 
         return view;
     }

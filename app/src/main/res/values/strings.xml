@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">PaletteActivity</string>
+    <string name="app_name">Palette Activity</string>
     <string name="canvas_name">Canvas Activity</string>
 </resources>
