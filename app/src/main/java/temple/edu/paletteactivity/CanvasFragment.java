@@ -11,9 +11,7 @@ import android.view.ViewGroup;
 
 
 public class CanvasFragment extends Fragment {
-
     static final String COLOR_KEY = "color";
-
     private View canvas;
     private String color;
 

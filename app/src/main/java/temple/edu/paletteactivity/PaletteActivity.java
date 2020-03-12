@@ -1,6 +1,9 @@
 package temple.edu.paletteactivity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.content.res.Resources;
@@ -9,9 +12,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
 
-public class PaletteActivity extends AppCompatActivity {
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
-    static final String EXTRA_COLOR = "temple.edu.paletteactivity.EXTRA_COLOR";
+public class PaletteActivity extends AppCompatActivity implements PaletteFragment.PaletteFragmentInterface {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,32 +25,25 @@ public class PaletteActivity extends AppCompatActivity {
         Resources res = getResources();
         String[] color_names = res.getStringArray(R.array.color_names_array);
         String[] color_codes = res.getStringArray(R.array.color_codes_array);
-        String[][] colors = new String[color_names.length][];
 
-        for(int i = 0; i < color_names.length; i++){
-            colors[i] = new String[]{color_names[i], color_codes[i]};
-        }
+        FragmentManager fm = getSupportFragmentManager();
+        fm.beginTransaction()
+                .add(R.id.activityLayout, PaletteFragment.newInstance(color_names,color_codes))
+                .commit();
+    }
 
-        final Spinner colorSpinner = findViewById(R.id.colorSpinner);
+    @Override
+    public void onColorSelected(String color) {
 
-        ColorAdapter colorAdapter = new ColorAdapter(this, colors);
-        colorSpinner.setAdapter( colorAdapter );
+        CanvasFragment cF = new CanvasFragment();
+        Bundle args = new Bundle();
+        args.putString(CanvasFragment.COLOR_KEY, color);
+        cF.setArguments(args);
 
-        colorSpinner.setOnItemSelectedListener(new Spinner.OnItemSelectedListener(){
-
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setClass(PaletteActivity.this, CanvasActivity.class);
-                intent.putExtra(EXTRA_COLOR, ((String[])parent.getItemAtPosition(position))[1]);
-                startActivity(intent);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
+        FragmentManager fm = getSupportFragmentManager();
+        fm.beginTransaction()
+                .addToBackStack(null)
+                .add(R.id.activityLayout, cF)
+                .commit();
     }
 }
