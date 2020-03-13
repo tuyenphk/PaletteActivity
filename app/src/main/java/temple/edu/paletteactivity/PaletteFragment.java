@@ -18,11 +18,8 @@ public class PaletteFragment extends Fragment {
 
     private static final String ARG_PARAM_COLOR_NAME = "color_names";
     private static final String ARG_PARAM_COLOR_CODE = "color_codes";
-
     private String[][] colors;
-
     private PaletteFragmentInterface mActivity;
-
     public PaletteFragment() {
         // Required empty public constructor
     }
@@ -54,25 +51,19 @@ public class PaletteFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_palette, container, false);
-
         Spinner colorSpinner = v.findViewById(R.id.colorSpinner);
-
         ColorAdapter colorAdapter = new ColorAdapter((Context) mActivity, this.colors);
         colorSpinner.setAdapter( colorAdapter );
-
         colorSpinner.setSelection(0,false);
-
         colorSpinner.setOnItemSelectedListener(new Spinner.OnItemSelectedListener(){
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
                 mActivity.onColorSelected( ((String[])parent.getItemAtPosition(position))[1] );
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
 
@@ -97,7 +88,6 @@ public class PaletteFragment extends Fragment {
     }
 
     public interface PaletteFragmentInterface {
-
         void onColorSelected(String color);
     }
 }

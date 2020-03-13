@@ -32,9 +32,7 @@ public class CanvasFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         this.canvas = inflater.inflate(R.layout.fragment_canvas, container, false);
-
         updateColor(this.color);
-
         return canvas;
     }
 
