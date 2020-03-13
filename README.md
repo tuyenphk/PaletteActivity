@@ -1,7 +1,8 @@
 # PaletteActivity
 
-This application will run into the Palette Activity picture, then color selected will launch into the Canvas Activity picture orderly as below:
+When selecting a color from an adapter view (the Spinner) in the palette fragment, and once selected, the information should be passed to the second fragment 
+that will set its background to the selected color as the following pictures:
 
-![Palette Activity](img/Palette_Spanish.png)
+![Palette Fragment](img/pic1.png)
 
-![Canvas Activity](img/Canvas_Spanish.png)
+![Canvas Fragment](img/pic2.png)
